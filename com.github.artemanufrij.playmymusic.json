@@ -89,8 +89,8 @@
             },
             "sources": [{
                 "type": "archive",
-                "url": "https://github.com/artemanufrij/playmymusic/archive/1.1.1.tar.gz",
-                "sha256": "54eb6fcae36da954d2f0ff72eb2af2182f9be15d6e839261d439b72c1d588826"
+                "url": "https://github.com/artemanufrij/playmymusic/archive/2.0.0.tar.gz",
+                "sha256": "8e7d6aba4a741bbc24b3691713493724750ca104568c3961eab945b822199909"
             },{
                 "type": "patch",
                 "path": "elementary-theme.patch"
