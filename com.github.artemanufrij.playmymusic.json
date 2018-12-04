@@ -24,7 +24,7 @@
         /* Wayland */
         "--socket=wayland",
         /* Filesystem */
-        "--filesystem=home",
+        "--filesystem=xdg-music",
         "--talk-name=org.gtk.vfs",
         "--talk-name=org.gtk.vfs.*",
         /* Network (Radio + Covers) */
