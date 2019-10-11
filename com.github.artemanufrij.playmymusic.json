@@ -3,21 +3,9 @@
     "base": "io.elementary.BaseApp",
     "base-version": "juno",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.30",
+    "runtime-version": "3.34",
     "sdk": "org.gnome.Sdk",
     "command": "com.github.artemanufrij.playmymusic",
-    "cleanup": [
-        "/include",
-        "/lib/pkgconfig",
-        "/share/pkgconfig",
-        "/share/aclocal",
-        "/man",
-        "/share/man",
-        "/share/gtk-doc",
-        "/share/vala",
-        "*.la",
-        "*.a"
-    ],
     "finish-args": [
         /* X11 + XShm */
         "--share=ipc", "--socket=x11",
@@ -30,8 +18,7 @@
         /* Network (Radio + Covers) */
         "--share=network",
         /* dconf */
-        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+        "--metadata=X-DConf=migrate-path=/com/github/artemanufrij/playmymusic/",
         /* Audio */
         "--socket=pulseaudio",
         /* Notifications */
@@ -43,29 +30,19 @@
         "--talk-name=org.mpris.MediaPlayer2",
         "--own-name=org.mpris.MediaPlayer2.com.github.artemanufrij.playmymusic"
     ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/pkgconfig",
+        "/share/aclocal",
+        "/man",
+        "/share/man",
+        "/share/gtk-doc",
+        "/share/vala",
+        "*.la",
+        "*.a"
+    ],
     "modules": [
-        {
-            "name": "gst-libav",
-            "config-opts": [
-                "--disable-gtk-doc"
-            ],
-            "sources": [{
-                "type": "archive",
-                "url": "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.12.3.tar.xz",
-                "sha256": "015ef8cab6f7fb87c8fb42642486423eff3b6e6a6bccdcd6a189f436a3619650"
-            }]
-        },
-        {
-            "name": "gst-plugins-ugly",
-            "config-opts": [
-                "--disable-gtk-doc"
-            ],
-            "sources": [{
-                "type": "archive",
-                "url": "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.12.3.tar.xz",
-                "sha256": "e88ca584c94ea78eeecbf3af00ef7f134b66bdee7408aa4aa6c547235e060052"
-            }]
-        },
         {
             "name": "taglib",
             "buildsystem": "cmake-ninja",
@@ -89,8 +66,8 @@
             },
             "sources": [{
                 "type": "archive",
-                "url": "https://github.com/artemanufrij/playmymusic/archive/2.1.0.tar.gz",
-                "sha256": "d196f2b7cc9c9b2e2d2944a444f1ff5822dd8169a5d4f0870a0d72f1bc8c9602"
+                "url": "https://github.com/artemanufrij/playmymusic/archive/2.2.1.tar.gz",
+                "sha256": "a5ea467fc5ed65efe83a5b650019a2562618467c26fda5b0bec49b78b8fdbeb5"
             },{
                 "type": "patch",
                 "path": "elementary-theme.patch"
