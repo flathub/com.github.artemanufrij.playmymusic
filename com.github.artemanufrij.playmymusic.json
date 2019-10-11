@@ -12,7 +12,7 @@
         /* Wayland */
         "--socket=wayland",
         /* Filesystem */
-        "--filesystem=home",
+        "--filesystem=host",
         "--talk-name=org.gtk.vfs",
         "--talk-name=org.gtk.vfs.*",
         /* Network (Radio + Covers) */
