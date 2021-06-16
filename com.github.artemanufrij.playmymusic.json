@@ -1,9 +1,9 @@
 {
     "app-id": "com.github.artemanufrij.playmymusic",
     "base": "io.elementary.BaseApp",
-    "base-version": "juno-19.08",
+    "base-version": "juno-20.08",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.36",
+    "runtime-version": "40",
     "sdk": "org.gnome.Sdk",
     "command": "com.github.artemanufrij.playmymusic",
     "finish-args": [
@@ -52,8 +52,8 @@
             ],
             "sources": [{
                 "type": "archive",
-                "url": "https://github.com/taglib/taglib/archive/v1.11.1.tar.gz",
-                "sha256": "b6d1a5a610aae6ff39d93de5efd0fdc787aa9e9dc1e7026fa4c961b26563526b"
+                "url": "https://github.com/taglib/taglib/archive/v1.12.tar.gz",
+                "sha256": "b5a56f78a8bd962aaaec992b25a031f541b949b6eb30aa232bd6d5fa17cf8fa8"
             }]
         },
         {
