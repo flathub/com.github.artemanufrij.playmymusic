@@ -1,9 +1,9 @@
 {
     "app-id": "com.github.artemanufrij.playmymusic",
     "base": "io.elementary.BaseApp",
-    "base-version": "juno-20.08",
+    "base-version": "juno-21.08",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "40",
+    "runtime-version": "42",
     "sdk": "org.gnome.Sdk",
     "command": "com.github.artemanufrij.playmymusic",
     "finish-args": [
@@ -13,7 +13,6 @@
         "--socket=wayland",
         /* Filesystem */
         "--filesystem=host",
-        "--talk-name=org.gtk.vfs",
         "--talk-name=org.gtk.vfs.*",
         /* Network (Radio + Covers) */
         "--share=network",
