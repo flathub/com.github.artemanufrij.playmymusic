@@ -1,10 +1,10 @@
 {
     "app-id": "com.github.artemanufrij.playmymusic",
     "base": "io.elementary.BaseApp",
-    "base-version": "juno-21.08",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "42",
-    "sdk": "org.gnome.Sdk",
+    "base-version": "juno-23.08",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "23.08",
+    "sdk": "org.freedesktop.Sdk",
     "command": "com.github.artemanufrij.playmymusic",
     "finish-args": [
         /* X11 + XShm */
@@ -42,6 +42,7 @@
         "*.a"
     ],
     "modules": [
+        "shared-modules/libsoup/libsoup-2.4.json",
         {
             "name": "taglib",
             "buildsystem": "cmake-ninja",
