@@ -1,0 +1,91 @@
+From 4db73085c6c528191deb02f7310d33b0c1fb26ba Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Thu, 31 Oct 2024 20:54:10 +0300
+Subject: [PATCH] Fix appdata papercuts
+
+---
+ data/com.github.artemanufrij.playmymusic.appdata.xml.in | 39 +++++++--------------------------------
+ po/extra/pt_BR.po                                       |  2 +-
+ 2 files changed, 8 insertions(+), 33 deletions(-)
+
+diff --git a/data/com.github.artemanufrij.playmymusic.appdata.xml.in b/data/com.github.artemanufrij.playmymusic.appdata.xml.in
+index 2b33e1d..cae7d82 100644
+--- a/data/com.github.artemanufrij.playmymusic.appdata.xml.in
++++ b/data/com.github.artemanufrij.playmymusic.appdata.xml.in
+@@ -29,10 +29,11 @@
+   </custom>
+   <translation type="gettext">com.github.artemanufrij.playmymusic</translation>
+   <developer_name>Artem Anufrij</developer_name>
+-  <url type="homepage">http://anufrij.org/melody/</url>
++  <url type="homepage">https://anufrij.org/melody/</url>
+   <url type="bugtracker">https://github.com/artemanufrij/playmymusic/issues</url>
+   <url type="help">https://github.com/artemanufrij/playmymusic/issues</url>
+   <url type="donation">https://www.paypal.me/ArtemAnufrij</url>
++  <url type="vcs-browser">https://github.com/artemanufrij/playmymusic</url>
+   <url type="translate">https://github.com/artemanufrij/playmymusic</url>
+   <update_contact>artem.anufrij@live.de</update_contact>
+   <launchable type="desktop-id">com.github.artemanufrij.playmymusic.desktop</launchable>
+@@ -166,7 +167,9 @@
+       </description>
+     </release>
+     <release date="2018-07-24" version="1.1.0">
+-      <description>Prepare for JUNO</description>
++      <description>
++        <p>Prepare for JUNO</p>
++      </description>
+     </release>
+     <release date="2018-04-15" version="1.0.3">
+       <description>
+@@ -572,33 +575,5 @@
+       </description>
+     </release>
+   </releases>
+-  <content_rating type="oars-1.1">
+-    <content_attribute id="violence-cartoon">none</content_attribute>
+-    <content_attribute id="violence-fantasy">none</content_attribute>
+-    <content_attribute id="violence-realistic">none</content_attribute>
+-    <content_attribute id="violence-bloodshed">none</content_attribute>
+-    <content_attribute id="violence-sexual">none</content_attribute>
+-    <content_attribute id="violence-desecration">none</content_attribute>
+-    <content_attribute id="violence-slavery">none</content_attribute>
+-    <content_attribute id="violence-worship">none</content_attribute>
+-    <content_attribute id="drugs-alcohol">none</content_attribute>
+-    <content_attribute id="drugs-narcotics">none</content_attribute>
+-    <content_attribute id="drugs-tobacco">none</content_attribute>
+-    <content_attribute id="sex-nudity">none</content_attribute>
+-    <content_attribute id="sex-themes">none</content_attribute>
+-    <content_attribute id="sex-homosexuality">none</content_attribute>
+-    <content_attribute id="sex-prostitution">none</content_attribute>
+-    <content_attribute id="sex-adultery">none</content_attribute>
+-    <content_attribute id="sex-appearance">none</content_attribute>
+-    <content_attribute id="language-profanity">none</content_attribute>
+-    <content_attribute id="language-humor">none</content_attribute>
+-    <content_attribute id="language-discrimination">none</content_attribute>
+-    <content_attribute id="social-chat">none</content_attribute>
+-    <content_attribute id="social-info">mild</content_attribute>
+-    <content_attribute id="social-audio">none</content_attribute>
+-    <content_attribute id="social-location">none</content_attribute>
+-    <content_attribute id="social-contacts">none</content_attribute>
+-    <content_attribute id="money-purchasing">none</content_attribute>
+-    <content_attribute id="money-gambling">none</content_attribute>
+-  </content_rating>
+-</component>
+\ No newline at end of file
++  <content_rating type="oars-1.1"/>
++</component>
+diff --git a/po/extra/pt_BR.po b/po/extra/pt_BR.po
+index 33a7c39..f4c37bf 100644
+--- a/po/extra/pt_BR.po
++++ b/po/extra/pt_BR.po
+@@ -534,7 +534,7 @@ msgstr ""
+ 
+ #: data/com.github.artemanufrij.playmymusic.appdata.xml.in:395
+ msgid "Merge Albums"
+-msgstr " "
++msgstr ""
+ 
+ #: data/com.github.artemanufrij.playmymusic.appdata.xml.in:396
+ msgid "Album Editor [F2]"
+--
+libgit2 1.7.2
+
