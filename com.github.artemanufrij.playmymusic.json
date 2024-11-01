@@ -26,7 +26,6 @@
         /* Inhibitor */
         "--talk-name=org.freedesktop.ScreenSaver",
         /* Media Keys */
-        "--talk-name=org.gnome.SettingsDaemon.MediaKeys",
         "--talk-name=org.mpris.MediaPlayer2",
         "--own-name=org.mpris.MediaPlayer2.com.github.artemanufrij.playmymusic"
     ],
