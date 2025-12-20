@@ -70,12 +70,12 @@
                 "sha256": "a5ea467fc5ed65efe83a5b650019a2562618467c26fda5b0bec49b78b8fdbeb5"
             },{
                 "type": "patch",
-                "path": "elementary-theme.patch"
-            },
-            {
-                "type": "patch",
-                "path": "fix-appdata.patch"
-            }]
+                "paths": [
+                    "elementary-theme.patch",
+                    "fix-appdata.patch",
+                    "fix-quit-action.patch"
+                ]}
+            ],
             "post-install": [
                 "mkdir -p /app/share/icons/hicolor/scalable/apps",
                 "mv /app/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg",
