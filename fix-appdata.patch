@@ -1,15 +1,16 @@
-From 4db73085c6c528191deb02f7310d33b0c1fb26ba Mon Sep 17 00:00:00 2001
+From afaf2e30fd1a43965f704934ad53f59a999c532d Mon Sep 17 00:00:00 2001
 From: Sabri Ünal <yakushabb@gmail.com>
-Date: Thu, 31 Oct 2024 20:54:10 +0300
+Date: Sat, 20 Dec 2025 22:28:10 +0300
 Subject: [PATCH] Fix appdata papercuts
 
 ---
  data/com.github.artemanufrij.playmymusic.appdata.xml.in | 39 +++++++--------------------------------
+ po/extra/fr.po                                          |  2 +-
  po/extra/pt_BR.po                                       |  2 +-
- 2 files changed, 8 insertions(+), 33 deletions(-)
+ 3 files changed, 9 insertions(+), 34 deletions(-)
 
 diff --git a/data/com.github.artemanufrij.playmymusic.appdata.xml.in b/data/com.github.artemanufrij.playmymusic.appdata.xml.in
-index 2b33e1d..cae7d82 100644
+index 2b33e1d..1173f5c 100644
 --- a/data/com.github.artemanufrij.playmymusic.appdata.xml.in
 +++ b/data/com.github.artemanufrij.playmymusic.appdata.xml.in
 @@ -29,10 +29,11 @@
@@ -73,6 +74,19 @@ index 2b33e1d..cae7d82 100644
 \ No newline at end of file
 +  <content_rating type="oars-1.1"/>
 +</component>
+diff --git a/po/extra/fr.po b/po/extra/fr.po
+index d3ee9a9..29c7355 100644
+--- a/po/extra/fr.po
++++ b/po/extra/fr.po
+@@ -386,7 +386,7 @@ msgstr "Danois (par Rasmus Lindegaard)"
+ 
+ #: data/com.github.artemanufrij.playmymusic.appdata.xml.in:208
+ msgid "'and' char in Tracks View"
+-msgstr "Caractère « & » dans la vue des pistes"
++msgstr ""
+ 
+ #: data/com.github.artemanufrij.playmymusic.appdata.xml.in:212
+ msgid "Context menu behaviour"
 diff --git a/po/extra/pt_BR.po b/po/extra/pt_BR.po
 index 33a7c39..f4c37bf 100644
 --- a/po/extra/pt_BR.po

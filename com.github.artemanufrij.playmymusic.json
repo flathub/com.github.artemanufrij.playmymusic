@@ -1,15 +1,22 @@
 {
     "app-id": "com.github.artemanufrij.playmymusic",
-    "base": "io.elementary.BaseApp",
-    "base-version": "juno-23.08",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "23.08",
+    "runtime-version": "25.08",
+    "base": "io.elementary.BaseApp",
+    "base-version": "circe-25.08",
     "sdk": "org.freedesktop.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.vala"
+    ],
+    "build-options": {
+        "prepend-path": "/usr/lib/sdk/vala/bin/",
+        "prepend-ld-library-path": "/usr/lib/sdk/vala/lib"
+    },
     "command": "com.github.artemanufrij.playmymusic",
     "finish-args": [
         /* X11 + XShm */
         "--share=ipc",
-        "--socket=x11",
+        "--socket=fallback-x11",
         /* Wayland */
         "--socket=wayland",
         /* Filesystem */
@@ -26,8 +33,7 @@
         /* Inhibitor */
         "--talk-name=org.freedesktop.ScreenSaver",
         /* Media Keys */
-        "--talk-name=org.mpris.MediaPlayer2",
-        "--own-name=org.mpris.MediaPlayer2.com.github.artemanufrij.playmymusic"
+        "--talk-name=org.mpris.MediaPlayer2"
     ],
     "cleanup": [
         "/include",
@@ -44,11 +50,24 @@
     "modules": [
         "shared-modules/libsoup/libsoup-2.4.json",
         {
+            "name": "libgee",
+            "make-install-args": [
+                "girdir=/app/share/gir-1.0",
+                "typelibdir=/app/lib/girepository-1.0"
+            ],
+            "sources": [{
+                "type": "archive",
+                "url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz",
+                "sha256": "189815ac143d89867193b0c52b7dc31f3aa108a15f04d6b5dca2b6adfad0b0ee"
+            }]
+        },
+        {
             "name": "taglib",
             "buildsystem": "cmake-ninja",
             "config-opts": [
                 "-DBUILD_SHARED_LIBS=ON",
-                "-DCMAKE_BUILD_TYPE=Release"
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
             ],
             "sources": [{
                 "type": "archive",
@@ -63,23 +82,24 @@
                 "config-opts": [
                     "--buildtype=release"
                 ]
-            },			
-            "post-install" : [
-                "mkdir -p /app/share/icons/hicolor/scalable/apps && mv /app/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg",
-                "find /app/share/icons/hicolor -type f -not -path \"*scalable*\" -not -path \"*actions*\" -name \"*.svg\" -delete"
-            ],
+            },
             "sources": [{
                 "type": "archive",
                 "url": "https://github.com/artemanufrij/playmymusic/archive/2.2.1.tar.gz",
                 "sha256": "a5ea467fc5ed65efe83a5b650019a2562618467c26fda5b0bec49b78b8fdbeb5"
             },{
                 "type": "patch",
-                "path": "elementary-theme.patch"
-            },
-            {
-                "type": "patch",
-                "path": "fix-appdata.patch"
-            }]
+                "paths": [
+                    "elementary-theme.patch",
+                    "fix-appdata.patch",
+                    "fix-quit-action.patch"
+                ]}
+            ],
+            "post-install": [
+                "mkdir -p /app/share/icons/hicolor/scalable/apps",
+                "mv /app/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg",
+                "find /app/share/icons/hicolor -type f -not -path \"*scalable*\" -not -path \"*actions*\" -name \"*.svg\" -delete"
+            ]
         }
     ]
 }

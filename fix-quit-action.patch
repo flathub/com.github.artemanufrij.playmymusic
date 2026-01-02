@@ -1,0 +1,28 @@
+From bbfe5d30b61c2c136435e82bca35cdf2d1aef9a6 Mon Sep 17 00:00:00 2001
+From: Artem Anufrij <artem.anufrij@live.de>
+Date: Tue, 16 Jul 2019 22:04:50 +0200
+Subject: [PATCH] ctrl+q
+
+---
+ src/Application.vala | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/src/Application.vala b/src/Application.vala
+index 66d1e78..598c17a 100644
+--- a/src/Application.vala
++++ b/src/Application.vala
+@@ -109,6 +109,14 @@ namespace PlayMyMusic {
+                     }
+                 });
+ 
++            var action_quit = action_generator ("<Control>q", "quit");
++            action_quit.activate.connect (
++                () => {
++                    if (mainwindow != null) {
++                        mainwindow.destroy ();
++                    }
++                });
++
+             create_cache_folders ();
+         }
+ 
