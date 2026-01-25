@@ -50,32 +50,6 @@
     "modules": [
         "shared-modules/libsoup/libsoup-2.4.json",
         {
-            "name": "libgee",
-            "make-install-args": [
-                "girdir=/app/share/gir-1.0",
-                "typelibdir=/app/lib/girepository-1.0"
-            ],
-            "sources": [{
-                "type": "archive",
-                "url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz",
-                "sha256": "189815ac143d89867193b0c52b7dc31f3aa108a15f04d6b5dca2b6adfad0b0ee"
-            }]
-        },
-        {
-            "name": "taglib",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DBUILD_SHARED_LIBS=ON",
-                "-DCMAKE_BUILD_TYPE=Release",
-                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
-            ],
-            "sources": [{
-                "type": "archive",
-                "url": "https://github.com/taglib/taglib/archive/v1.12.tar.gz",
-                "sha256": "b5a56f78a8bd962aaaec992b25a031f541b949b6eb30aa232bd6d5fa17cf8fa8"
-            }]
-        },
-        {
             "name": "playmymusic",
             "buildsystem": "meson",
             "build-options": {
