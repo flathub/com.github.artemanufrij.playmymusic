@@ -1,0 +1,59 @@
+app-id: com.github.artemanufrij.playmymusic
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+base: io.elementary.BaseApp
+base-version: circe-25.08
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.vala
+build-options:
+  prepend-path: /usr/lib/sdk/vala/bin/
+  prepend-ld-library-path: /usr/lib/sdk/vala/lib
+command: com.github.artemanufrij.playmymusic
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --filesystem=host
+  - --talk-name=org.gtk.vfs.*
+  # Network (Radio + Covers)
+  - --share=network
+  - --metadata=X-DConf=migrate-path=/com/github/artemanufrij/playmymusic/
+  - --socket=pulseaudio
+  - --talk-name=org.freedesktop.Notifications
+  # Inhibitor
+  - --talk-name=org.freedesktop.ScreenSaver
+  # Media Keys
+  - --talk-name=org.mpris.MediaPlayer2
+cleanup:
+  - "*.a"
+  - "*.la"
+# A temporary solution until circe-26.08
+cleanup-commands:
+  - rm -rf /app//bin/sassc
+  - rm -rf /app/include
+  - rm -rf /app/lib/libportal*
+  - rm -rf /app/lib/libsass*
+  - rm -rf /app/lib/girepository-1.0
+  - rm -rf /app/lib/pkgconfig
+  - rm -rf /app/share/gir-1.0
+  - rm -rf /app/share/vala
+modules:
+  - shared-modules/libsoup/libsoup-2.4.json
+  - name: playmymusic
+    buildsystem: meson
+    config-opts:
+      - --buildtype=release
+    post-install:
+      - mkdir -p /app/share/icons/hicolor/scalable/apps
+      - mv /app/share/icons/hicolor/64x64/apps/${FLATPAK_ID}.svg -t /app/share/icons/hicolor/scalable/apps
+      - find /app/share/icons/hicolor -type f -not -path "*scalable*" -not -path "*actions*" -name "*.svg" -delete
+    sources:
+      - type: archive
+        url: https://github.com/artemanufrij/playmymusic/archive/2.2.1.tar.gz
+        sha256: a5ea467fc5ed65efe83a5b650019a2562618467c26fda5b0bec49b78b8fdbeb5
+      - type: patch
+        paths:
+          - elementary-theme.patch
+          - fix-appdata.patch
+          - fix-quit-action.patch
